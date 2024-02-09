@@ -10,6 +10,7 @@ import { PassportModule } from '@nestjs/passport';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtAuthStrategy } from './jwt/jwt-auth.strategy';
+import { UserLocalAuthStrategy } from './user/user-auth.strategy';
 
 @Module({
   controllers: [AuthController],
@@ -29,6 +30,7 @@ import { JwtAuthStrategy } from './jwt/jwt-auth.strategy';
   ],
   providers: [
     AuthService,
+    UserLocalAuthStrategy,
     JwtAuthStrategy,
     UserRepository,
     ExistingPhoneNumberConstraint,
