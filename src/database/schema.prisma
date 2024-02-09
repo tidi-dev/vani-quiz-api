@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String @id @default(uuid())
+  full_name    String
+  phone_number String @unique
+  password     String
+
+  last_login_at DateTime @default(now())
+
+  created_by String?
+  created_at DateTime @default(now())
+  updated_by String?
+  updated_at DateTime @updatedAt
+
+  @@map("user")
+}
+
+model Question {
+  id      String           @id @default(uuid())
+  content String           @db.Text
+  hint    String           @db.Text
+  type    QuestionTypeEnum
+
+  choices    Choice[]
+  created_by String?
+  created_at DateTime @default(now())
+  updated_by String?
+  updated_at DateTime @updatedAt
+
+  @@map("question")
+}
+
+model Choice {
+  id          String  @id @default(uuid())
+  question_id String
+  answer      String  @db.Text
+  is_correct  Boolean @default(false)
+
+  question Question @relation(fields: [question_id], references: [id])
+
+  created_by String?
+  created_at DateTime @default(now())
+  updated_by String?
+  updated_at DateTime @updatedAt
+
+  @@map("choice")
+}
+
+enum QuestionTypeEnum {
+  SINGLE_CHOICE
+  MULTIPLE_CHOICE
+}
