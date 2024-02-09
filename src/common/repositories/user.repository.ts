@@ -6,15 +6,6 @@ import { BaseRepository } from './base.repository';
 
 @Injectable()
 export class UserRepository extends BaseRepository {
-  async findOneBy({ phone_number, password }): Promise<User> {
-    return this.prisma.user.findUnique({
-      where: {
-        phone_number,
-        password,
-      },
-    });
-  }
-
   async findByPhoneNumber(phone_number: string): Promise<User> {
     return this.prisma.user.findUnique({
       where: {
@@ -36,6 +27,7 @@ export class UserRepository extends BaseRepository {
       },
       select: {
         full_name: true,
+        phone_number: true,
         last_login_at: true,
       },
     });
