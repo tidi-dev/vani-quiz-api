@@ -1,9 +1,7 @@
 import { PHONE_NUMBER_REGEX } from '@/common/constants';
-import { hashPassword } from '@/common/functions';
 import { ExistingPhoneNumber } from '@/core/validators';
 import { ApiProperty } from '@nestjs/swagger';
-import { Transform } from 'class-transformer';
-import { Matches } from 'class-validator';
+import { IsNotEmpty, Matches } from 'class-validator';
 
 export class LoginDto {
   @ApiProperty()
@@ -14,6 +12,6 @@ export class LoginDto {
   phone_number: string;
 
   @ApiProperty({ example: 'p@ssword123' })
-  @Transform(({ value }) => hashPassword(value))
+  @IsNotEmpty()
   password: string;
 }

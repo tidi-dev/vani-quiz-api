@@ -1,7 +1,6 @@
 import { UserRepository } from '@/common/repositories';
 import { Injectable } from '@nestjs/common';
 import type {
-  ValidationArguments,
   ValidationOptions,
   ValidatorConstraintInterface,
 } from 'class-validator';
@@ -18,8 +17,8 @@ export class ExistingPhoneNumberConstraint
     return !!(await this.userRepository.findByPhoneNumber(phone_number));
   }
 
-  defaultMessage(validationArguments?: ValidationArguments) {
-    return `Phone number ${validationArguments.value} is already existed`;
+  defaultMessage() {
+    return `Invalid credential`;
   }
 }
 

@@ -14,6 +14,24 @@ export class UserRepository extends BaseRepository {
     });
   }
 
+  async updateTheLatestSignInTime(
+    phone_number: string,
+  ): Promise<Partial<User>> {
+    return this.prisma.user.update({
+      where: {
+        phone_number: encryptPhone(phone_number),
+      },
+      data: {
+        last_login_at: new Date().toISOString(),
+      },
+      select: {
+        full_name: true,
+        phone_number: true,
+        last_login_at: true,
+      },
+    });
+  }
+
   async createUser({
     full_name,
     password,
