@@ -1,6 +1,7 @@
-import { SubmitChoiceDto } from '@/common/dtos';
+import { SubmitAnswerDto } from '@/common/dtos';
 import { QuestionRepository } from '@/common/repositories';
 import { Injectable } from '@nestjs/common';
+import { AnswerCheckingProcess } from './answer-checking-process/answer-checking-process';
 
 @Injectable()
 export class QuestionsService {
@@ -10,7 +11,9 @@ export class QuestionsService {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getById(id: string, submitChoiceDto: SubmitChoiceDto) {
-    return this.questionRepository.getQuestionById(id);
+  async checkAnswer(id: string, { answer }: SubmitAnswerDto) {
+    const question = await this.questionRepository.getQuestionById(id);
+
+    return new AnswerCheckingProcess(question, answer).checkAnswerByType();
   }
 }

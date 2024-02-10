@@ -1,5 +1,5 @@
-import { QuestionIdParam, SubmitChoiceDto } from '@/common/dtos';
-import { Body, Controller, Get, Param } from '@nestjs/common';
+import { QuestionIdParam, SubmitAnswerDto } from '@/common/dtos';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { QuestionsService } from './questions.service';
 
 @Controller('questions')
@@ -11,11 +11,11 @@ export class QuestionsController {
     return this.questionsService.findAll();
   }
 
-  @Get(':id')
+  @Post(':id')
   getById(
     @Param() { id }: QuestionIdParam,
-    @Body() submitChoiceDto: SubmitChoiceDto,
+    @Body() submitAnswerDto: SubmitAnswerDto,
   ) {
-    return this.questionsService.getById(id, submitChoiceDto);
+    return this.questionsService.checkAnswer(id, submitAnswerDto);
   }
 }
