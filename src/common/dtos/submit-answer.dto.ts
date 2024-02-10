@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsUUID } from 'class-validator';
 
-export class SubmitChoiceDto {
+export class SubmitAnswerDto {
   @ApiProperty()
   @IsUUID('4', { each: true })
-  choices: string[];
+  answer: string[];
 }
