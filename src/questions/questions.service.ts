@@ -9,6 +9,7 @@ export class QuestionsService {
     return this.questionRepository.findAll();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   getById(id: string, submitChoiceDto: SubmitChoiceDto) {
     return this.questionRepository.getQuestionById(id);
   }

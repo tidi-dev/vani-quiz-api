@@ -11,9 +11,12 @@ export class AuthService {
     private userRepository: UserRepository,
   ) {}
 
-  login(loginDto: LoginDto) {
+  async login({ phone_number }: LoginDto) {
+    const user =
+      await this.userRepository.updateTheLatestSignInTime(phone_number);
     return {
-      access_token: this.jwtService.sign(loginDto),
+      access_token: this.jwtService.sign({ phone_number }),
+      user,
     };
   }
 
