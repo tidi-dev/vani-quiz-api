@@ -1,6 +1,6 @@
 import { comparePassword } from '@/common/functions';
 import { UserRepository } from '@/common/repositories';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-local';
 
@@ -15,7 +15,7 @@ export class UserLocalAuthStrategy extends PassportStrategy(Strategy, 'user') {
     const isValidPassword = await comparePassword(password, user?.password);
 
     if (!user || !isValidPassword) {
-      throw new UnauthorizedException();
+      throw new BadRequestException();
     }
 
     return user;

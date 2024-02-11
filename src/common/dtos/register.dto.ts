@@ -1,4 +1,4 @@
-import { PASSWORD_REGEX, PHONE_NUMBER_REGEX } from '@/common/constants';
+import { PHONE_NUMBER_REGEX } from '@/common/constants';
 import { UniquePhoneNumber } from '@/core/validators';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, Matches } from 'class-validator';
@@ -15,10 +15,7 @@ export class RegisterDto {
   })
   phone_number: string;
 
-  @ApiProperty({ example: 'p@ssword123' })
-  @Matches(PASSWORD_REGEX, {
-    message:
-      'Password must contain character, number, special character and at least characters',
-  })
+  @ApiProperty()
+  @IsNotEmpty()
   password: string;
 }

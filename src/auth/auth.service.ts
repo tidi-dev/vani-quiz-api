@@ -16,7 +16,10 @@ export class AuthService {
       await this.userRepository.updateTheLatestSignInTime(phone_number);
     return {
       access_token: this.jwtService.sign({ phone_number }),
-      user,
+      user: {
+        ...user,
+        phone_number: decryptPhone(user.phone_number),
+      },
     };
   }
 
