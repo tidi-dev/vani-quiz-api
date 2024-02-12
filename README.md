@@ -2,17 +2,6 @@
 # Vani Heroes Quiz API
 
 This is the Back End
-  
-
-## Features
-
-- [x] NestJS
-
-- [x] Docker
-
-- [x] Prisma
-
-- [x] Swagger
 
   
 ## Stacks
