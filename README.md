@@ -1,74 +1,197 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Vani Heroes Quiz API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This is the Back End
+  
 
-## Description
+## Features
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [x] NestJS
 
-## Installation
+- [x] Docker
 
-```bash
-$ yarn install
+- [x] Prisma
+
+- [x] Swagger
+
+  
+## Stacks
+
+
+- Typescript [https://www.typescriptlang.org/docs/](https://www.typescriptlang.org/docs/)
+
+- Docker [https://docs.docker.com/](https://docs.docker.com/)
+
+- NestJS framework [https://docs.nestjs.com/](https://docs.nestjs.com/)
+
+	- class-validator [https://docs.nestjs.com/techniques/validation](https://docs.nestjs.com/techniques/validation)
+
+	- class-transformer [https://docs.nestjs.com/techniques/serialization](https://docs.nestjs.com/techniques/serialization)
+
+	- passport [https://docs.nestjs.com/security/authentication](https://docs.nestjs.com/security/authentication)
+
+	- passport-jwt [http://www.passportjs.org/packages/passport-jwt/](http://www.passportjs.org/packages/passport-jwt/)
+
+	- passport-local [https://www.passportjs.org/packages/passport-local/](https://www.passportjs.org/packages/passport-local/)
+
+
+- Prisma (mysql) [https://www.prisma.io/docs](https://www.prisma.io/docs)
+
+- Swagger [https://docs.nestjs.com/openapi/introduction](https://docs.nestjs.com/openapi/introduction)
+
+- crypto-js [https://www.npmjs.com/package/crypto-js](https://www.npmjs.com/package/crypto-js)
+
+- bcrypt [https://www.npmjs.com/package/bcrypt](https://www.npmjs.com/package/bcrypt)
+
+  
+
+## Pre Setup
+
+- Required **Node 16** or higher
+
+- **Tools** are recommended
+
+	- [**Visual Studio Code**](https://code.visualstudio.com/): Completely free and with built-in Git support and huge extension library, it’s widely used, especially by frontend developers.
+
+	- [**Postman**](https://www.postman.com/): API platform for building and using APIs
+
+	- [**Table Plus**](https://tableplus.com/): Modern, native, and friendly GUI tool for relational databases
+
+- Make sure to install the [suggested extensions](.vscode/extensions.json)
+
+## Structure
+```
+├── app.controller.spec.ts
+├── app.controller.ts
+├── app.module.ts
+├── app.service.ts
+├── auth
+│   ├── auth.controller.ts
+│   ├── auth.module.ts
+│   ├── auth.service.ts
+│   ├── jwt
+│   │   ├── jwt-auth.guard.ts
+│   │   └── jwt-auth.strategy.ts
+│   └── user
+│       ├── user-auth.guard.ts
+│       └── user-auth.strategy.ts
+├── common
+│   ├── constants
+│   │   ├── index.ts
+│   │   └── regex.constant.ts
+│   ├── dtos
+│   │   ├── index.ts
+│   │   ├── login.dto.ts
+│   │   ├── question-id.dto.ts
+│   │   ├── register.dto.ts
+│   │   └── submit-answer.dto.ts
+│   ├── functions
+│   │   ├── index.ts
+│   │   ├── password.function.ts
+│   │   └── phone.function.ts
+│   ├── repositories
+│   │   ├── base.repository.ts
+│   │   ├── index.ts
+│   │   ├── question.repository.ts
+│   │   └── user.repository.ts
+│   ├── responses
+│   │   ├── index.ts
+│   │   └── login.response.ts
+│   └── types
+│       ├── index.ts
+│       └── question-and-choices.type.ts
+├── config
+│   └── swagger.config.ts
+├── core
+│   ├── decorators
+│   │   ├── index.ts
+│   │   └── public.decorator.ts
+│   └── validators
+│       ├── index.ts
+│       ├── is-existing-id.validator.ts
+│       ├── is-existing-phone-number.validator.ts
+│       └── is-unique-phone-number.validator.ts
+├── database
+│   ├── migrations
+│   │   ├── 20240209123906_init
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   ├── schema.prisma
+│   ├── seed.ts
+│   └── seeders
+│       └── dummy.data.ts
+├── main.ts
+├── prisma
+│   ├── prisma.module.ts
+│   └── prisma.service.ts
+└── questions
+    ├── answer-checking-process
+    │   ├── answer-checking-process.ts
+    │   ├── interface.ts
+    │   ├── multiple-answer-checking-process.ts
+    │   └── single-answer-checking-process.ts
+    ├── questions.controller.spec.ts
+    ├── questions.controller.ts
+    ├── questions.module.ts
+    ├── questions.service.spec.ts
+    └── questions.service.ts
 ```
 
-## Running the app
+The project organizes its main folders within `/src`, encompassing essential directories such as `common`, `core`, `config`, `database`, and `prisma`.
 
+Additionally, it incorporates several model-related folders, including `auth`, `user`, and `question`.
+
+## Setup
 ```bash
-# development
-$ yarn run start
+# copy & paste .env.local .env
 
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+cp .env.local .env
 ```
 
-## Test
+- [**Generate JWT_SECRET**](docs/jwt-secret-generating.md): on how to generate JWT_SECRET to use local
+
+- [**Generate ENCRYPT_KEY**](docs/encrypt-key-generating.md): on how to generate ENCRYPT_KEY and ENCRYPT_IV to use local
 
 ```bash
-# unit tests
-$ yarn run test
 
-# e2e tests
-$ yarn run test:e2e
+# install required packages
 
-# test coverage
-$ yarn run test:cov
+yarn install
+
 ```
 
-## Support
+```bash
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# start docker in detach mode
 
-## Stay in touch
+docker-compose up -d
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
 
-## License
+```bash
 
-Nest is [MIT licensed](LICENSE).
-# vani-quiz-api
+# init database schema
+
+yarn db:init
+
+```
+
+```bash
+
+# seed dummy data
+
+yarn db:seed
+
+```
+
+```bash
+
+# reset data and create new dummy data
+
+yarn db:reset
+
+# to reset data without creating new dummy data, add `--skip-seed`
+
+yarn db:reset --skip-seed
+
+```
