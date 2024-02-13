@@ -3,8 +3,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 export function configSwagger(app: INestApplication) {
   const config = new DocumentBuilder()
-    .setTitle('CDN Web App')
-    .setDescription('This is CDN Web App')
+    .setTitle('Vani Quiz API')
+    .setDescription('This is Vani Quiz Api')
     .setVersion('1.0')
     .addBearerAuth()
     .addSecurityRequirements('bearer')
