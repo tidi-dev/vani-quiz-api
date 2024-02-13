@@ -136,6 +136,7 @@ Additionally, it incorporates several model-related folders, including `auth`, `
 
 cp .env.local .env
 ```
+Please refrain from editing the MYSQL settings already present in `.env.local` to avoid potential errors.
 
 - [**Generate JWT_SECRET**](docs/jwt-secret-generating.md): on how to generate JWT_SECRET to use local
 
