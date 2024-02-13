@@ -151,14 +151,6 @@ yarn install
 
 ```bash
 
-# start docker in detach mode
-
-docker-compose up -d
-
-```
-
-```bash
-
 # init database schema
 
 yarn db:init
@@ -182,5 +174,13 @@ yarn db:reset
 # to reset data without creating new dummy data, add `--skip-seed`
 
 yarn db:reset --skip-seed
+
+```
+
+```bash
+
+# start docker in detach mode
+
+docker compose up database -d
 
 ```

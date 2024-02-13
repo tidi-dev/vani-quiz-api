@@ -23,7 +23,7 @@ services:
     depends_on:
         - database  
   database:
-      container_name: be-database
+      container_name: vani-database
       image: mysql:8.0
       restart: unless-stopped
       ports:
